@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Loading } from "components";
 
-const HomePage = React.lazy(() => import("pages/index"));
+const HomePage = React.lazy(() => import("pages/Index"));
 
 const AppRoutes = () => {
   return (
