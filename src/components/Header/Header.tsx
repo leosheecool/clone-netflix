@@ -1,32 +1,61 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar/SearchBar";
+// import SearchBar from "./SearchBar/SearchBar";
 import styles from "./Header.module.scss";
+import cn from "classnames";
+
+import { ReactComponent as Search } from "assets/icons/search.svg";
+import { Helmet } from "react-helmet-async";
 
 const Header = () => {
+  const [isBlack, setIsBlack] = React.useState(false);
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        setIsBlack(true);
+      } else {
+        setIsBlack(false);
+      }
+    });
+  }, []);
+
   return (
-    <div className={styles.container}>
-      <img
-        src={
-          "https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
-        }
-        className={styles.logo}
-        alt="Netflix"
-      />
-      <nav>
-        <Link to="/">Acceuil</Link>
-        <Link to="/">Movies</Link>
-        <Link to="/">Series</Link>
-      </nav>
-      <SearchBar />
-      <img
-        src={
-          "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-        }
-        className={styles.avatar}
-        alt="account"
-      />
-      <div></div>
+    <div className={cn(styles.container, { [styles.black]: isBlack })}>
+      <Helmet>
+        <title>Netflix</title>
+      </Helmet>
+      <div className={styles.section}>
+        <img
+          src={
+            "https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
+          }
+          className={styles.logo}
+          alt="Netflix"
+        />
+        <nav>
+          <Link to="/" className={styles.link}>
+            Home
+          </Link>
+          <Link to="/" className={styles.link}>
+            Movies
+          </Link>
+          <Link to="/" className={styles.link}>
+            Series
+          </Link>
+        </nav>
+      </div>
+      <div className={styles.section}>
+        <Search className={styles.searchIcon} />
+        {/* <SearchBar /> */}
+        <img
+          src={
+            "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+          }
+          className={styles.avatar}
+          alt="account"
+        />
+      </div>
     </div>
   );
 };

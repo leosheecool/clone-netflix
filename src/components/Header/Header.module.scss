@@ -1,7 +1,42 @@
 .container {
   display: flex;
-  background-color: black;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
   padding: 10px;
+  position: sticky;
+  top: 0;
+  transition: background-color 0.5s ease;
+  &.black {
+    background-color: black;
+
+    .link {
+      color: white;
+      &:hover {
+        color: #e50914;
+      }
+    }
+    .searchIcon {
+      fill: white;
+    }
+  }
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0 10px;
+  &:hover {
+    color: #e50914;
+  }
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
