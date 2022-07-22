@@ -35,6 +35,12 @@ const Row = ({ title, UrlToFetch, data = [] }: Props) => {
     setContent(data);
   }, [data, content]);
 
+  const addDefaultSrc = (e: any) => {
+    console.log("test");
+    e.target.src =
+      "https://cdn.vox-cdn.com/thumbor/KNlt4WzgRBrvNHS3ULQu595AL5s=/0x0:3840x2560/1200x800/filters:focal(1613x973:2227x1587)/cdn.vox-cdn.com/uploads/chorus_image/image/66267583/netflix_n_icon_logo_3840.0.jpg";
+  };
+
   return (
     <div className={styles.container}>
       <h2>{title}</h2>
@@ -53,6 +59,7 @@ const Row = ({ title, UrlToFetch, data = [] }: Props) => {
               <SwiperSlide key={item.poster_path} className={styles.item}>
                 <img
                   src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                  onError={addDefaultSrc}
                   alt={item.title}
                   className={styles.image}
                 />

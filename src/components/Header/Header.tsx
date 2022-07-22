@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import SearchBar from "./SearchBar/SearchBar";
 import styles from "./Header.module.scss";
 import cn from "classnames";
 
 import { ReactComponent as Search } from "assets/icons/search.svg";
-import { Helmet } from "react-helmet-async";
 
 const Header = () => {
   const [isBlack, setIsBlack] = React.useState(false);
@@ -22,9 +20,6 @@ const Header = () => {
 
   return (
     <div className={cn(styles.container, { [styles.black]: isBlack })}>
-      <Helmet>
-        <title>Netflix</title>
-      </Helmet>
       <div className={styles.section}>
         <img
           src={
