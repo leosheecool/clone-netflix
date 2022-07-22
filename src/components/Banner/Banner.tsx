@@ -27,6 +27,7 @@ const Banner = ({ movie }: Props) => {
           </button>
         </div>
       </div>
+      <div className={styles.bottomVignette} />
     </div>
   );
 };
