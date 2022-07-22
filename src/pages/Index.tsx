@@ -9,21 +9,19 @@ const Index = () => {
   const [movies, setMovies] = useState<CinematicEntry[]>([]);
 
   useEffect(() => {
+    if (movies.length > 0) return;
     axios.get(requests.fetchTrendingMovies).then((res) => {
       setMovies(res.data.results);
     });
-  }, []);
+  }, [movies]);
 
   console.log(movies);
+
+  const randomMovie = movies[Math.floor(Math.random() * movies.length)];
   return (
     <div>
       <Header />
-      <Banner
-        description="test description"
-        title="Test"
-        video=""
-        type="Movie"
-      />
+      <Banner movie={randomMovie} />
       <p>test</p>
       <p>test</p>
       <p>test</p>

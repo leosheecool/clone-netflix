@@ -1,6 +1,7 @@
 .container {
-  height: 60vh;
+  height: 100vh;
   position: relative;
+  background-color: black;
 }
 
 .image {
@@ -10,10 +11,22 @@
   z-index: -1;
 }
 
+.vignette {
+  background: linear-gradient(77deg, rgba(0, 0, 0, 0.6), transparent 85%);
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  right: 26.09%;
+  top: 0;
+  transition: opacity 0.5s;
+}
+
 .infoContainer {
   position: absolute;
   bottom: 35%;
   color: white;
+  max-width: 40%;
 
   display: flex;
   flex-direction: column;
